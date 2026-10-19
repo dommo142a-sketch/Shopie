@@ -1,0 +1,23 @@
+<section class="page-width product-page">
+  <div class="product-media">
+    {% if product.media.size > 0 %}
+      {% for media in product.media %}<div class="product-media-item">{{ media | media_tag: image_size: '1200x', controls: true }}</div>{% endfor %}
+    {% else %}<div class="product-placeholder product-placeholder-large"><span>NORTHLINE<br>EVERYDAY OBJECTS</span></div>{% endif %}
+  </div>
+  <div class="product-details">
+    <p class="eyebrow">{{ product.type | default: 'THE EVERYDAY EDIT' | escape }}</p><h1>{{ product.title | escape }}</h1>
+    <div class="product-price product-price-large" id="ProductPrice-{{ section.id }}">{{ product.selected_or_first_available_variant.price | money }}{% if product.compare_at_price > product.price %}<s>{{ product.compare_at_price | money }}</s>{% endif %}</div>
+    {% if section.settings.show_description %}<div class="product-description rte">{{ product.description }}</div>{% endif %}
+    {% form 'product', product, id: 'ProductForm-' | append: section.id, class: 'product-form' %}
+      {% unless product.has_only_default_variant %}<label for="Variant-{{ section.id }}">Choose an option</label><select id="Variant-{{ section.id }}" name="id">{% for variant in product.variants %}<option value="{{ variant.id }}" {% if variant == product.selected_or_first_available_variant %}selected{% endif %} {% unless variant.available %}disabled{% endunless %}>{{ variant.title | escape }} — {{ variant.price | money }}{% unless variant.available %} (Sold out){% endunless %}</option>{% endfor %}</select>{% else %}<input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">{% endunless %}
+      <label for="Quantity-{{ section.id }}">Quantity</label><input id="Quantity-{{ section.id }}" type="number" name="quantity" value="1" min="1">
+      <button class="button button-dark button-full" type="submit" name="add" {% unless product.selected_or_first_available_variant.available %}disabled{% endunless %}>{% if product.selected_or_first_available_variant.available %}Add to bag — {{ product.selected_or_first_available_variant.price | money }}{% else %}Sold out{% endif %}</button>
+      {{ form | payment_button }}
+    {% endform %}
+    <div class="product-promises"><p>✓ Secure checkout through Shopify</p><p>✓ Clear delivery and returns information</p><p>✓ Support from a real person</p></div>
+    {% if section.settings.shipping_note != blank %}<p class="muted small">{{ section.settings.shipping_note | escape }}</p>{% endif %}
+  </div>
+</section>
+{% schema %}
+{"name":"Main product","settings":[{"type":"checkbox","id":"show_description","label":"Show product description","default":true},{"type":"text","id":"shipping_note","label":"Shipping note","default":"Delivery times and returns are shown at checkout and in our policies."}]}
+{% endschema %}

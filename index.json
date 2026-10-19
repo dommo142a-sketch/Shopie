@@ -1,0 +1,64 @@
+{
+  "sections": {
+    "hero": {
+      "type": "main-hero",
+      "settings": {}
+    },
+    "featured": {
+      "type": "featured-collection",
+      "settings": {}
+    },
+    "values": {
+      "type": "rich-text",
+      "settings": {
+        "eyebrow": "OUR POINT OF VIEW",
+        "heading": "Useful by design.",
+        "text": "<p>We believe the things you use every day should earn their place. Northline brings together practical, considered pieces that help your space feel calmer and work harder.</p>",
+        "button_label": "Meet Northline",
+        "button_link": "/pages/our-story"
+      }
+    },
+    "benefits": {
+      "type": "multicolumn",
+      "blocks": {
+        "one": {
+          "type": "column",
+          "settings": {
+            "title": "Thoughtful utility",
+            "text": "Everyday objects chosen for function, not fuss."
+          }
+        },
+        "two": {
+          "type": "column",
+          "settings": {
+            "title": "A calmer space",
+            "text": "Simple pieces that make room for focus."
+          }
+        },
+        "three": {
+          "type": "column",
+          "settings": {
+            "title": "No unnecessary extras",
+            "text": "A small, considered edit rather than endless choice."
+          }
+        }
+      },
+      "block_order": [
+        "one",
+        "two",
+        "three"
+      ],
+      "settings": {
+        "title": "A better everyday starts small",
+        "text": "",
+        "columns_desktop": 3
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "featured",
+    "values",
+    "benefits"
+  ]
+}

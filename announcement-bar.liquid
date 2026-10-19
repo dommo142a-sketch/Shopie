@@ -1,0 +1,6 @@
+{% if section.settings.show and section.settings.text != blank %}
+<div class="announcement-bar"><p>{{ section.settings.text | escape }}</p></div>
+{% endif %}
+{% schema %}
+{"name":"Announcement bar","settings":[{"type":"checkbox","id":"show","label":"Show announcement","default":true},{"type":"text","id":"text","label":"Announcement text","default":"Thoughtful upgrades for your everyday space"}]}
+{% endschema %}

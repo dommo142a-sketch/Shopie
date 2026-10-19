@@ -1,0 +1,9 @@
+<article class="product-card">
+  <a class="product-card-image" href="{{ card_product.url }}">
+    {% if card_product.featured_image %}
+      {{ card_product.featured_image | image_url: width: 800 | image_tag: loading: 'lazy', widths: '320, 480, 640, 800', alt: card_product.featured_image.alt | default: card_product.title }}
+    {% else %}<div class="product-placeholder"><span>NORTHLINE<br>EVERYDAY OBJECTS</span></div>{% endif %}
+    {% if card_product.compare_at_price > card_product.price %}<span class="product-badge">Sale</span>{% endif %}
+  </a>
+  <div class="product-card-info"><div><a class="product-title" href="{{ card_product.url }}">{{ card_product.title | escape }}</a><p class="product-subtitle">{{ card_product.type | default: 'Everyday essential' | escape }}</p></div><p class="product-price">{% if card_product.price_varies %}From {% endif %}{{ card_product.price | money }}{% if card_product.compare_at_price > card_product.price %}<s>{{ card_product.compare_at_price | money }}</s>{% endif %}</p></div>
+</article>

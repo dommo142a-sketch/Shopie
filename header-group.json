@@ -1,0 +1,24 @@
+{
+  "type": "header",
+  "name": "Header group",
+  "sections": {
+    "announcement": {
+      "type": "announcement-bar",
+      "settings": {
+        "text": "Thoughtful upgrades for your everyday space",
+        "show": true
+      }
+    },
+    "header": {
+      "type": "header",
+      "settings": {
+        "logo_text": "NORTHLINE",
+        "menu": "main-menu"
+      }
+    }
+  },
+  "order": [
+    "announcement",
+    "header"
+  ]
+}

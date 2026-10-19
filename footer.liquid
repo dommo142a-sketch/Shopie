@@ -1,0 +1,13 @@
+<footer class="site-footer">
+  <div class="page-width footer-grid">
+    <div><a class="wordmark footer-wordmark" href="{{ routes.root_url }}">{{ shop.name | default: 'NORTHLINE' | escape }}<span class="wordmark-dot">.</span></a><p>{{ section.settings.brand_text | escape }}</p></div>
+    <div><p class="footer-heading">Explore</p>{% if section.settings.menu != blank %}{% for link in section.settings.menu.links %}<a class="footer-link" href="{{ link.url }}">{{ link.title | escape }}</a>{% endfor %}{% else %}<a class="footer-link" href="{{ routes.all_products_collection_url }}">Shop all</a><a class="footer-link" href="/pages/contact">Contact</a>{% endif %}</div>
+    <div><p class="footer-heading">Stay in the loop</p><p class="muted">Product drops and practical ideas for a calmer space.</p>
+      {% form 'customer', class: 'newsletter-form' %}<input type="hidden" name="contact[tags]" value="newsletter"><label class="visually-hidden" for="NewsletterEmail">Email address</label><input id="NewsletterEmail" type="email" name="contact[email]" placeholder="Your email address" required><button type="submit" class="button button-dark">Join</button>{% endform %}
+    </div>
+  </div>
+  <div class="page-width footer-bottom"><span>© {{ 'now' | date: '%Y' }} {{ shop.name | escape }}</span><span>Designed for everyday living.</span></div>
+</footer>
+{% schema %}
+{"name":"Footer","settings":[{"type":"text","id":"brand_text","label":"Brand line","default":"Good design. Less clutter."},{"type":"link_list","id":"menu","label":"Footer menu","default":"footer"}]}
+{% endschema %}

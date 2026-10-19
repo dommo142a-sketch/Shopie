@@ -1,0 +1,22 @@
+<header class="site-header">
+  <div class="header-inner page-width">
+    <a class="wordmark" href="{{ routes.root_url }}" aria-label="{{ shop.name | escape }} home">{{ section.settings.logo_text | default: shop.name | escape }}<span class="wordmark-dot">.</span></a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="SiteNav">Menu</button>
+    <nav id="SiteNav" class="site-nav" aria-label="Main navigation">
+      {% if section.settings.menu != blank %}
+        {% for link in section.settings.menu.links %}
+          <a href="{{ link.url }}" {% if link.active %}aria-current="page"{% endif %}>{{ link.title | escape }}</a>
+        {% endfor %}
+      {% else %}
+        <a href="{{ routes.all_products_collection_url }}">Shop all</a><a href="/pages/our-story">Our story</a><a href="/pages/contact">Contact</a>
+      {% endif %}
+    </nav>
+    <div class="header-actions">
+      <a href="{{ routes.search_url }}" aria-label="Search">Search</a>
+      <a href="{{ routes.cart_url }}" aria-label="Shopping bag">Bag <span class="cart-count">{{ cart.item_count }}</span></a>
+    </div>
+  </div>
+</header>
+{% schema %}
+{"name":"Header","settings":[{"type":"text","id":"logo_text","label":"Wordmark","default":"NORTHLINE"},{"type":"link_list","id":"menu","label":"Main menu","default":"main-menu"}]}
+{% endschema %}

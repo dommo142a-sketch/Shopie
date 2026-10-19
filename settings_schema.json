@@ -1,0 +1,48 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Northline Supply",
+    "theme_author": "OpenAI",
+    "theme_version": "1.0.0",
+    "theme_documentation_url": "https://help.shopify.com/",
+    "theme_support_url": "https://help.shopify.com/"
+  },
+  {
+    "name": "Brand colors",
+    "settings": [
+      {
+        "type": "color",
+        "id": "color_ink",
+        "label": "Ink",
+        "default": "#202722"
+      },
+      {
+        "type": "color",
+        "id": "color_paper",
+        "label": "Paper",
+        "default": "#f7f6f2"
+      },
+      {
+        "type": "color",
+        "id": "color_sage",
+        "label": "Sage",
+        "default": "#dce3d8"
+      },
+      {
+        "type": "color",
+        "id": "color_clay",
+        "label": "Clay",
+        "default": "#c47b5a"
+      }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "The theme uses system fonts for speed and consistency. You can adjust fonts in Shopify's theme editor if your theme settings support it."
+      }
+    ]
+  }
+]
